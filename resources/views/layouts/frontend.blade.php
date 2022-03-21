@@ -40,7 +40,7 @@
               <li class="nav-item {{ request()->is('/') ? 'active' : '' }}">
                   <a href="{{ route('homepage') }}" class="nav-link">Home</a>
               </li>          
-              <li class="nav-item dropdown">
+              {{-- <li class="nav-item dropdown">
                   <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" 
                   class="nav-link dropdown-toggle {{ Request::segment(1) === 'kecamatan' ? 'active' : null }}">
                     Kecamatan
@@ -54,6 +54,21 @@
                           </li>                         
                       @endforeach
                   </ul>
+              </li> --}}
+              <li class="nav-item dropdown">
+                <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" 
+                class="nav-link dropdown-toggle {{ Request::segment(1) === 'kecamatan' ? 'active' : null }}">
+                  Data Kecamatan
+                </a>
+                <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
+                    @foreach ($kecamatan as $data)
+                        <li>
+                            <a href="{{ route('data_kecamatan', $data->id) }}" class="dropdown-item {{ request()->is('kecamatan/'.$data->id) ? 'active' : '' }}">
+                                {{ $data->kecamatan }}
+                            </a>
+                        </li>                         
+                    @endforeach
+                </ul>
               </li>
               {{-- <li class="nav-item dropdown">
                   <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle">
@@ -74,7 +89,7 @@
                         <li><a href="{{ route('data_jenjang', $data->id) }}" class="dropdown-item">{{ $data->jenjang }}</a></li>                       
                     @endforeach
                 </ul>
-            </li>
+              </li>
               <li class="nav-item">
                   <a href="#" class="nav-link">About</a>
               </li>

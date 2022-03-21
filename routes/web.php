@@ -9,17 +9,19 @@ use App\Http\Controllers\JenjangController;
 use App\Http\Controllers\SekolahController;
 use App\Http\Controllers\KecamatanController;
 use App\Http\Controllers\DataJenjangController;
+use App\Http\Controllers\DataKecamatanController;
 
 Auth::routes();
 
 // Upgrade Menggunakan Eloquent
 Route::get('/', [DataWebController::class, 'index'])->name('homepage');
+Route::get('/data/kecamatan/{id}', [DataKecamatanController::class, 'data_kecamatan'])->name('data_kecamatan');
 Route::get('/data/jenjang/{id}', [DataJenjangController::class, 'data_jenjang'])->name('data_jenjang');
 Route::get('/data/jenjang/{id}/detailsekolah', [DataJenjangController::class, 'data_jenjang_detailsekolah'])->name('data_jenjang_detailsekolah');
 
 // Front End
 // Route::get('/', [WebController::class, 'index'])->name('homepage');
-Route::get('/kecamatan/{id}', [WebController::class, 'kecamatan'])->name('data.kecamatan');
+// Route::get('/kecamatan/{id}', [WebController::class, 'kecamatan'])->name('data.kecamatan');
 // Route::get('/jenjang/{id}', [WebController::class, 'jenjang'])->name('data.jenjang');
 // Route::get('/detailsekolah/{id}', [WebController::class, 'detailsekolah'])->name('data.detailsekolah');
 
