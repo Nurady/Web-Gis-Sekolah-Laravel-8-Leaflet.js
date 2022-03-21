@@ -18,8 +18,8 @@ Route::get('/data/jenjang/{id}/detailsekolah', [DataJenjangController::class, 'd
 // Front End
 Route::get('/', [WebController::class, 'index'])->name('homepage');
 Route::get('/kecamatan/{id}', [WebController::class, 'kecamatan'])->name('data.kecamatan');
-Route::get('/jenjang/{id}', [WebController::class, 'jenjang'])->name('data.jenjang');
-Route::get('/detailsekolah/{id}', [WebController::class, 'detailsekolah'])->name('data.detailsekolah');
+// Route::get('/jenjang/{id}', [WebController::class, 'jenjang'])->name('data.jenjang');
+// Route::get('/detailsekolah/{id}', [WebController::class, 'detailsekolah'])->name('data.detailsekolah');
 
 // Backend
 Route::middleware('auth')->group(function() {

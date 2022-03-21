@@ -37,6 +37,7 @@ class WebController extends Controller
             'sekolah' => $this->Web->DataSekolah($id),
             'jenjang' => $this->Web->DataJenjang(),
             'kec' => $kec,
+            'allJenjang' => Jenjang::all(),
         ];
 
         return view('v_kecamatan', $data);
